@@ -22,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
         //datos iniciales  al objeto central
         central.setAforo(50); //es llamado el metodo aforo (la cantidad de butacas que se va a tener. El valor inicial es de 20 )
 
-        central.setEntrada(8); //llamada a metodo entrada con valor inicial de 8.0
+        central.setEntrada(45); //llamada a metodo entrada con valor inicial de 8.0
 
     }
 
@@ -78,8 +78,18 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnLimpiar.setText("LImpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnIngresos.setText("ingresos");
+        btnIngresos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +189,25 @@ public class Principal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnOcupacionActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+            // Se elimina el registro de memoria        
+        
+        central.vaciarCeldas(); //llamada al metodo vaciar
+            this.lblPelicula.setText(null); //limpia componente
+        
+        
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresosActionPerformed
+        // TODO add your handling code here:
+        
+        String info = ""; // acumula los datos de ingresos
+        
+        
+        info = "Ingresos de salas : \n\n" + central.getIngresos() + "Pesos mexicanos"; //llamada del metodo getIngresos
+        JOptionPane.showMessageDialog(null, "Ingresos prodocidos por la sala: \n\n" +info);
+    }//GEN-LAST:event_btnIngresosActionPerformed
 
     /**
      * @param args the command line arguments
